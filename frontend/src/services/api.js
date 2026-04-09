@@ -18,3 +18,13 @@ export const fetchInsights = async (payload) => {
   const res = await axios.post(`${API_BASE_URL}/insights`, payload);
   return res.data;
 };
+
+export const fetchNLPFilter = async (query) => {
+  const res = await axios.post(`${API_BASE_URL}/insights/nlp`, { query });
+  return res.data;
+};
+
+export const fetchAISummary = async (payload) => {
+  const res = await axios.post(`${API_BASE_URL}/insights/summary`, payload);
+  return res.data;
+};

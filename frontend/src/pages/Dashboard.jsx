@@ -3,6 +3,7 @@ import Sidebar from '../components/Sidebar';
 import KPI from '../components/KPI';
 import InsightCard from '../components/InsightCard';
 import DataTable from '../components/DataTable';
+import AISummaryPanel from '../components/AISummaryPanel';
 import DashboardCharts from '../components/Charts/DashboardCharts';
 import { fetchVaccines, fetchSummary } from '../services/api';
 
@@ -147,6 +148,9 @@ const Dashboard = () => {
 
         <DashboardCharts data={vaccinesData} />
         
+        {/* Gemini Generated Dashboard Text Summary */}
+        {!error && !isLoading && <AISummaryPanel summaryData={summaryData} filters={filters} />}
+
         {/* Paginated Data Table underneath Charts */}
         <DataTable filters={filters} />
       </main>
