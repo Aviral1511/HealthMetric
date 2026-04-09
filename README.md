@@ -1,11 +1,10 @@
 <div align="center">
-  <h1>🧠 VaxInsight — AI-Powered Vaccine Market Intelligence Dashboard</h1>
+  <h1>🧠 HealthMetric — AI-Powered Vaccine Market Intelligence Dashboard</h1>
   
   <p>An advanced full-stack analytics platform for exploring global vaccine market trends with interactive visualizations, smart filtering, and Generative AI insights.</p>
 
   <p>
-    <a href="https://vaxinsight-frontend.vercel.app"><b>Live Demo (Frontend)</b></a> | 
-    <a href="https://vaxinsight-api.onrender.com"><b>Backend API</b></a>
+    <a href="https://health-metric-pi.vercel.app/"><b>Live Demo (Frontend)</b></a>
   </p>
 </div>
 
@@ -13,7 +12,7 @@
 
 ## 🌟 Overview
 
-VaxInsight is a modern analytics dashboard designed to explore synthetic global vaccine market data through dynamic filters, KPI summaries, interactive charts, and AI-generated insights.
+HealthMetric is a modern analytics dashboard designed to explore synthetic global vaccine market data through dynamic filters, KPI summaries, interactive charts, and AI-generated insights.
 
 The platform combines React, Node.js, and Gemini GenAI to deliver both traditional visualization and conversational analytics in a single interface.
 
@@ -182,7 +181,7 @@ Gemini AI Insight Layer
 ## 📁 Project Structure
 
 ```text
-VaxInsight/
+HealthMetric/
 │
 ├── backend/
 │   ├── controllers/
@@ -211,8 +210,8 @@ VaxInsight/
 ### Clone Repository
 
 ```bash
-git clone https://github.com/your-username/VaxInsight.git
-cd VaxInsight
+git clone https://github.com/Aviral1511/HealthMetric.git
+cd HealthMetric
 ```
 
 ### Backend Setup
@@ -251,19 +250,11 @@ _(App still works without API key using fallback insights.)_
 
 ## 📸 Screenshots
 
-_(Add these after deployment)_
 
-|                                                 Dashboard Overview                                                 |                                              KPI Cards                                               |
-| :----------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
-| <img src="https://via.placeholder.com/600x350/ffffff/333333?text=Dashboard+Overview" alt="Dashboard" width="400"/> | <img src="https://via.placeholder.com/600x350/1e293b/ffffff?text=KPI+Cards" alt="KPIs" width="400"/> |
-
-|                                        Chart Visualizations                                         |                                              AI Chat Interface                                              |
-| :-------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------: |
-| <img src="https://via.placeholder.com/600x350/10b981/ffffff?text=Charts" alt="Charts" width="400"/> | <img src="https://via.placeholder.com/600x350/indigo/ffffff?text=AI+ChatInterface" alt="Chat" width="400"/> |
-
-|                                              NLP Filter Demo                                              |                                               Dark Mode UI                                                |
-| :-------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------: |
-| <img src="https://via.placeholder.com/600x350/3b82f6/ffffff?text=NLP+Filters" alt="Filters" width="400"/> | <img src="https://via.placeholder.com/600x350/0f172a/ffffff?text=Dark+Mode" alt="Dark Mode" width="400"/> |
+<img width="1857" height="981" alt="image" src="https://github.com/user-attachments/assets/a82fbaa7-17e8-4d7f-82dd-cacb68e8641b" />
+<img width="1475" height="1046" alt="image" src="https://github.com/user-attachments/assets/1d11b4b3-495c-4264-92f4-95f526eaf864" />
+<img width="1455" height="917" alt="image" src="https://github.com/user-attachments/assets/2445fa33-3d54-4931-832a-090d2ee65cab" />
+<img width="1876" height="1049" alt="image" src="https://github.com/user-attachments/assets/1a76f035-38f7-47e5-8bec-11166def47f0" /> 
 
 ---
 
