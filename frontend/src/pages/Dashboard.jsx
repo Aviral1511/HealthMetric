@@ -3,6 +3,8 @@ import Sidebar from '../components/Sidebar';
 import KPI from '../components/KPI';
 import { fetchVaccines, fetchSummary } from '../services/api';
 
+import DashboardCharts from '../components/Charts/DashboardCharts';
+
 const Dashboard = () => {
   const [filters, setFilters] = useState({ region: '', brand: '', year: '' });
   const [vaccinesData, setVaccinesData] = useState([]);
@@ -78,18 +80,7 @@ const Dashboard = () => {
           </div>
         )}
 
-        <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] border border-slate-100 dark:border-slate-800/60 p-10 flex items-center justify-center min-h-[500px] relative overflow-hidden group">
-           <div className="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-indigo-500/5 dark:from-brand-500/10 dark:to-indigo-500/5 opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
-           <div className="text-center relative z-10 transform transition-transform duration-500 group-hover:scale-105">
-             <div className="w-20 h-20 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md border border-slate-200 dark:border-slate-700">
-               <svg className="w-10 h-10 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-             </div>
-             <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2">Charts Ready For Implementation</h3>
-             <p className="text-slate-500 dark:text-slate-400 max-w-sm mx-auto bg-slate-50 dark:bg-slate-900 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 text-sm">
-               Data fetching and filtering is fully active. Proceed to Step 7 to render visual data.
-             </p>
-           </div>
-        </div>
+        <DashboardCharts data={vaccinesData} />
       </main>
     </div>
   );
