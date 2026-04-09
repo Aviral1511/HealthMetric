@@ -7,7 +7,21 @@ import insightsRoutes from './routes/insights.routes.js';
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow localhost (dev) & any vercel.app domain
+    if (
+      !origin || 
+      origin.includes("localhost") ||
+      origin.endsWith(".vercel.app")
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes

@@ -15,7 +15,7 @@ const Sidebar = ({ filters, setFilters, isDark, toggleTheme, isOpen, setIsOpen }
             V
           </div>
           <h2 className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-500 dark:from-white dark:to-slate-300 tracking-tight">
-            VaxInsight
+            HealthMetric
           </h2>
         </div>
         <button className="md:hidden p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" onClick={() => setIsOpen(false)}>
@@ -31,26 +31,24 @@ const Sidebar = ({ filters, setFilters, isDark, toggleTheme, isOpen, setIsOpen }
       </div>
 
       <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
-         <span className="text-sm font-semibold text-slate-600 dark:text-slate-300 flex items-center gap-2">
-           {isDark ? '🌙 Dark Mode' : '☀️ Light Mode'}
-         </span>
-         <button
-            type="button"
-            className={`${
-              isDark ? 'bg-brand-500' : 'bg-slate-300'
+        <span className="text-sm font-semibold text-slate-600 dark:text-slate-300 flex items-center gap-2">
+          {isDark ? '🌙 Dark Mode' : '☀️ Light Mode'}
+        </span>
+        <button
+          type="button"
+          className={`${isDark ? 'bg-brand-500' : 'bg-slate-300'
             } relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900 group`}
-            role="switch"
-            aria-checked={isDark}
-            onClick={toggleTheme}
-          >
-            <span className="sr-only">Toggle dark mode</span>
-            <span
-              aria-hidden="true"
-              className={`${
-                isDark ? 'translate-x-5' : 'translate-x-0'
+          role="switch"
+          aria-checked={isDark}
+          onClick={toggleTheme}
+        >
+          <span className="sr-only">Toggle dark mode</span>
+          <span
+            aria-hidden="true"
+            className={`${isDark ? 'translate-x-5' : 'translate-x-0'
               } pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out group-hover:shadow-md`}
-            />
-          </button>
+          />
+        </button>
       </div>
     </aside>
   );
