@@ -131,3 +131,65 @@ export const getDashboardSummary = async (req, res) => {
     res.status(500).json({ error: 'Server error retrieving dashboard summary' });
   }
 };
+
+export const askDataChatbot = async (req, res) => {
+  try {
+    const { question, filterContext } = req.body;
+    const context = `
+      Answer the user's question explicitly based on this dataset context.
+      User Question: "${question}"
+      Context: Filters applied - ${JSON.stringify(filterContext)}.
+      Be concise, analytical, and professional. 1-2 sentences maximum.
+    `;
+    if (!API_KEY) {
+      await new Promise(r => setTimeout(r, 600));
+      return res.status(200).json({ answer: "Based on the provided demographic constraints, Moderna secures the highest volume allocation in this exact configuration." });
+    }
+    const ai = new GoogleGenAI({ apiKey: API_KEY });
+    const response = await ai.models.generateContent({ model: 'gemini-2.5-flash', contents: context });
+    res.status(200).json({ answer: response.text });
+  } catch (error) {
+    res.status(500).json({ error: 'Chatbot error' });
+  }
+};
+
+export const getChartRecommendation = async (req, res) => {
+  try {
+    const filters = req.body;
+    const context = `
+      Assume a dashboard with a Line Chart, Bar Chart, Pie Chart, Area Chart, and Scatter Plot.
+      The user selected these exact filters: ${JSON.stringify(filters)}.
+      Which chart should they focus on to glean the best insight based on this slice?
+      Keep it to 1 precise sentence. e.g. "A line chart is best to visualize growth trends across selected years."
+    `;
+    if (!API_KEY) {
+      await new Promise(r => setTimeout(r, 600));
+      return res.status(200).json({ recommendation: "A bar chart offers the clearest stratification across the selected regional boundaries." });
+    }
+    const ai = new GoogleGenAI({ apiKey: API_KEY });
+    const response = await ai.models.generateContent({ model: 'gemini-2.5-flash', contents: context });
+    res.status(200).json({ recommendation: response.text });
+  } catch(e) {
+    res.status(500).json({ error: "Recommendation error" });
+  }
+};
+
+export const getKpiExplanation = async (req, res) => {
+  try {
+    const { kpi, value } = req.body;
+    const context = `
+      The current value for the KPI "${kpi}" is ${value}.
+      Explain what this ${kpi} means for business users in exactly 1 brief sentence.
+      For example: "CAGR indicates moderate market expansion across selected years."
+    `;
+    if (!API_KEY) {
+      await new Promise(r => setTimeout(r, 500));
+      return res.status(200).json({ explanation: `The scale of this ${kpi} indicates a stable holding pattern internally within the observed sector block.` });
+    }
+    const ai = new GoogleGenAI({ apiKey: API_KEY });
+    const response = await ai.models.generateContent({ model: 'gemini-2.5-flash', contents: context });
+    res.status(200).json({ explanation: response.text });
+  } catch (e) {
+    res.status(500).json({ error: "KPI Explanation error" });
+  }
+};

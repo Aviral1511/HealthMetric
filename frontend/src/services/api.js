@@ -28,3 +28,18 @@ export const fetchAISummary = async (payload) => {
   const res = await axios.post(`${API_BASE_URL}/insights/summary`, payload);
   return res.data;
 };
+
+export const askDataChatbot = async (payload) => {
+  const res = await axios.post(`${API_BASE_URL}/insights/ask`, payload);
+  return res.data;
+};
+
+export const fetchChartRecommendation = async (payload) => {
+  const res = await axios.post(`${API_BASE_URL}/insights/chart-recommendation`, payload);
+  return res.data;
+};
+
+export const fetchKpiExplanation = async (payload) => {
+  const res = await axios.post(`${API_BASE_URL}/insights/kpi-explanation`, payload);
+  return res.data;
+};
