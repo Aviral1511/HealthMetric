@@ -19,6 +19,7 @@ const InsightCard = ({ vaccinesData }) => {
       }
     } catch (error) {
       setInsights(["Unable to generate insights at this time."]);
+      console.log("Error generating AI insights:", error);
     } finally {
       setLoading(false);
     }
@@ -28,7 +29,7 @@ const InsightCard = ({ vaccinesData }) => {
     <div className="bg-linear-to-r from-brand-600 to-indigo-700 dark:from-brand-900 dark:to-indigo-950 p-[2px] rounded-[24px] mb-12 shadow-lg hover:shadow-indigo-500/20 transition-all duration-500">
       <div className="bg-white dark:bg-[#1e293b] rounded-[22px] p-6 sm:p-8 relative overflow-hidden h-full">
         <div className="absolute top-0 right-0 -mr-16 -mt-16 w-32 h-32 rounded-full bg-brand-500/10 blur-3xl"></div>
-        
+
         <div className="flex items-start gap-4 flex-col sm:flex-row relative z-10 w-full">
           <div className="shrink-0 w-12 h-12 rounded-full bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center border border-indigo-100 dark:border-indigo-500/20 shadow-sm">
             <svg className="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -40,8 +41,8 @@ const InsightCard = ({ vaccinesData }) => {
               <h3 className="text-sm font-bold text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-brand-500 dark:from-indigo-400 dark:to-brand-400 uppercase tracking-widest">
                 AI Insight Generator
               </h3>
-              <button 
-                onClick={generateInsights} 
+              <button
+                onClick={generateInsights}
                 disabled={loading}
                 className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold transition-all shadow-md active:scale-95 disabled:opacity-50 disabled:active:scale-100 w-full sm:w-max flex justify-center items-center gap-2"
               >
@@ -58,7 +59,7 @@ const InsightCard = ({ vaccinesData }) => {
                 )}
               </button>
             </div>
-            
+
             {!hasGenerated && !loading && (
               <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">Click to analyze the current filtered dataset and generate 3 top-level trends via Gemini AI.</p>
             )}
@@ -74,7 +75,7 @@ const InsightCard = ({ vaccinesData }) => {
                 <ul className="space-y-4 mt-6">
                   {insights.map((ins, i) => (
                     <li key={i} className="flex gap-4 items-start text-slate-700 dark:text-slate-200">
-                      <span className="shrink-0 w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 text-xs font-black shadow-sm mt-0.5">{i+1}</span>
+                      <span className="shrink-0 w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 text-xs font-black shadow-sm mt-0.5">{i + 1}</span>
                       <span className="text-base md:text-lg font-medium leading-relaxed">{ins}</span>
                     </li>
                   ))}

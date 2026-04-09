@@ -15,6 +15,7 @@ const AISummaryPanel = ({ summaryData, filters }) => {
         if (isMounted) setSummary(data.summary);
       } catch (error) {
         if (isMounted) setSummary("Unable to generate summary at this time.");
+        console.error("Error generating AI summary:", error);
       } finally {
         if (isMounted) setLoading(false);
       }
@@ -26,7 +27,7 @@ const AISummaryPanel = ({ summaryData, filters }) => {
   return (
     <div className="mt-8 mb-4 bg-indigo-50/50 dark:bg-indigo-900/10 border border-indigo-100 dark:border-indigo-800/30 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-start gap-4 md:gap-5 shadow-sm">
       <div className="shrink-0 w-12 h-12 rounded-full bg-white dark:bg-indigo-900/40 border border-indigo-100 dark:border-indigo-500/20 shadow-sm flex items-center justify-center">
-         <span className="text-xl">📊</span>
+        <span className="text-xl">📊</span>
       </div>
       <div className="flex-1 w-full">
         <h3 className="text-sm font-bold text-indigo-800 dark:text-indigo-400 uppercase tracking-widest mb-3">Dashboard AI Summary</h3>
@@ -38,7 +39,7 @@ const AISummaryPanel = ({ summaryData, filters }) => {
           </div>
         ) : (
           <p className="text-sm md:text-base text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-             {summary}
+            {summary}
           </p>
         )}
       </div>

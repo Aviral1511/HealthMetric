@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchChartRecommendation } from '../services/api';
+import { fetchChartRecommendation } from '../../services/api.js';
 
 const ChartRecommendation = ({ filters }) => {
   const [recommendation, setRecommendation] = useState("");
@@ -33,12 +33,12 @@ const ChartRecommendation = ({ filters }) => {
         </div>
         <div className="flex-1 text-sm font-medium text-slate-700 dark:text-slate-300">
           {loading ? (
-             <div className="h-4 bg-emerald-200/50 dark:bg-emerald-800/30 rounded animate-pulse w-3/4"></div>
+            <div className="h-4 bg-emerald-200/50 dark:bg-emerald-800/30 rounded animate-pulse w-3/4"></div>
           ) : (
-             <>
-               <span className="font-bold text-emerald-700 dark:text-emerald-400 mr-2">Smart Suggestion:</span>
-               {recommendation}
-             </>
+            <>
+              <span className="font-bold text-emerald-700 dark:text-emerald-400 mr-2">Smart Suggestion:</span>
+              {recommendation}
+            </>
           )}
         </div>
       </div>

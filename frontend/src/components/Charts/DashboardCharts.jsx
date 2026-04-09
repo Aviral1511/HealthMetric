@@ -211,12 +211,30 @@ const DashboardCharts = ({ data, filters }) => {
           </div>
           <div className="h-80 w-full">
             <ResponsiveContainer width="100%" height="100%">
-              <ScatterChart margin={{ top: 10, right: 20, left: -20, bottom: 0 }}>
+              <ScatterChart margin={{ top: 10, right: 20, left: 20, bottom: 20 }}>
                 <CartesianGrid strokeDasharray="3 3" {...gridStyle} />
-                <XAxis type="number" dataKey="x" name="Price" unit="$" tick={axisStyle} axisLine={false} tickLine={false} />
-                <YAxis type="number" dataKey="y" name="Demand" unit="M" tick={axisStyle} axisLine={false} tickLine={false} />
+                <XAxis 
+                  type="number" 
+                  dataKey="x" 
+                  name="Price" 
+                  unit="$" 
+                  tick={axisStyle} 
+                  axisLine={{ stroke: '#94a3b8', strokeWidth: 2 }} 
+                  tickLine={{ stroke: '#94a3b8' }} 
+                  label={{ value: 'Price ($)', position: 'bottom', offset: 0, style: { fill: '#64748b', fontSize: 12, fontWeight: 'bold' } }}
+                />
+                <YAxis 
+                  type="number" 
+                  dataKey="y" 
+                  name="Demand" 
+                  unit="M" 
+                  tick={axisStyle} 
+                  axisLine={{ stroke: '#94a3b8', strokeWidth: 2 }} 
+                  tickLine={{ stroke: '#94a3b8' }} 
+                  label={{ value: 'Doses Sold (Millions)', angle: -90, position: 'left', offset: 0, style: { fill: '#64748b', fontSize: 12, fontWeight: 'bold' } }}
+                />
                 <RechartsTooltip cursor={{ strokeDasharray: '3 3', stroke: '#cbd5e1' }} content={<CustomTooltip />} />
-                <Legend wrapperStyle={{ fontSize: '13px', paddingTop: '10px' }} iconType="circle" />
+                <Legend wrapperStyle={{ fontSize: '13px', paddingTop: '20px' }} iconType="circle" />
                 <Scatter name="Vaccine Distribution Profile" data={scatterData} fill="#06b6d4" />
               </ScatterChart>
             </ResponsiveContainer>

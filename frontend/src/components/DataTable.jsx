@@ -14,7 +14,7 @@ const DataTable = ({ filters }) => {
     setLoading(true);
     try {
       const activeFilters = Object.fromEntries(
-          Object.entries(filters).filter(([_, v]) => v !== "")
+        Object.entries(filters).filter(([_, v]) => v !== "")
       );
       const res = await fetchVaccines({ ...activeFilters, page, limit, sort, order });
       if (res && res.data) {
@@ -52,10 +52,10 @@ const DataTable = ({ filters }) => {
         <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
           Vaccine Distribution Registry
         </h3>
-        <select 
-           value={limit} 
-           onChange={(e) => { setLimit(Number(e.target.value)); setPage(1); }}
-           className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm rounded-lg px-3 py-1.5 focus:ring-2 focus:ring-brand-500 outline-none"
+        <select
+          value={limit}
+          onChange={(e) => { setLimit(Number(e.target.value)); setPage(1); }}
+          className="bg-white dark:bg-slate-900 border dark:text-gray-100 text-gray-800 border-slate-200 dark:border-slate-700 text-sm font-semibold rounded-lg px-3 py-1.5 focus:ring-2 focus:ring-brand-500 outline-none"
         >
           <option value={5}>5 Rows</option>
           <option value={10}>10 Rows</option>
@@ -79,9 +79,9 @@ const DataTable = ({ filters }) => {
             {loading ? (
               <tr>
                 <td colSpan="6" className="p-8">
-                   <div className="flex justify-center flex-col gap-4">
-                     {[1,2,3].map(i => <div key={i} className="h-8 bg-slate-100 dark:bg-slate-800/50 rounded w-full animate-pulse"></div>)}
-                   </div>
+                  <div className="flex justify-center flex-col gap-4">
+                    {[1, 2, 3].map(i => <div key={i} className="h-8 bg-slate-100 dark:bg-slate-800/50 rounded w-full animate-pulse"></div>)}
+                  </div>
                 </td>
               </tr>
             ) : data.length === 0 ? (
@@ -97,9 +97,9 @@ const DataTable = ({ filters }) => {
                   <td className="px-6 py-4 font-bold text-emerald-600 dark:text-emerald-400">${row.market_size.toFixed(2)}B</td>
                   <td className="px-6 py-4 font-medium text-slate-700 dark:text-slate-300">${row.price.toFixed(2)}</td>
                   <td className="px-6 py-4">
-                     <span className={`px-2 py-1 flex items-center w-max gap-1 rounded-full text-xs font-bold ${row.growth_rate > 0 ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' : 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400'}`}>
-                        {row.growth_rate > 0 ? '+' : ''}{(row.growth_rate * 100).toFixed(1)}%
-                     </span>
+                    <span className={`px-2 py-1 flex items-center w-max gap-1 rounded-full text-xs font-bold ${row.growth_rate > 0 ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' : 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400'}`}>
+                      {row.growth_rate > 0 ? '+' : ''}{(row.growth_rate * 100).toFixed(1)}%
+                    </span>
                   </td>
                 </tr>
               ))
@@ -113,14 +113,14 @@ const DataTable = ({ filters }) => {
           Showing <span className="font-semibold text-slate-700 dark:text-slate-300">{data.length > 0 ? ((page - 1) * limit) + 1 : 0}</span> to <span className="font-semibold text-slate-700 dark:text-slate-300">{Math.min(page * limit, total)}</span> of <span className="font-semibold text-slate-700 dark:text-slate-300">{total}</span>
         </span>
         <div className="flex gap-2">
-          <button 
+          <button
             disabled={page === 1}
             onClick={() => setPage(p => p - 1)}
             className="px-4 py-2 border border-[#e2e8f0] dark:border-slate-700 bg-white dark:bg-slate-900 rounded-lg text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             Prev
           </button>
-          <button 
+          <button
             disabled={page >= totalPages}
             onClick={() => setPage(p => p + 1)}
             className="px-4 py-2 border border-[#e2e8f0] dark:border-slate-700 bg-white dark:bg-slate-900 rounded-lg text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"

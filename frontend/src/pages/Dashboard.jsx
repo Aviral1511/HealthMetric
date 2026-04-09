@@ -131,7 +131,7 @@ const Dashboard = () => {
         )}
 
         {/* Gemini AI Insight Card */}
-        {!error && !isLoading && <InsightCard summaryData={summaryData} filters={filters} />}
+        {!error && !isLoading && <InsightCard summaryData={summaryData} filters={filters} vaccinesData={vaccinesData} />}
 
         {isLoading ? (
           <div className="grid gap-6 grid-cols-1 md:grid-cols-3 mb-10 w-full">
@@ -146,6 +146,11 @@ const Dashboard = () => {
             <KPI title="Avg Growth Rate (CAGR)" value={summaryData.cagr.toFixed(2)} suffix="%" />
           </div>
         )}
+
+        <DashboardCharts data={vaccinesData} filters={filters} />
+        
+        {/* Gemini Generated Dashboard Text Summary */}
+        {!error && !isLoading && <AISummaryPanel summaryData={summaryData} filters={filters} />}
 
         {/* Paginated Data Table underneath Charts */}
         <DataTable filters={filters} />
