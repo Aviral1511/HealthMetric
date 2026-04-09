@@ -1,0 +1,25 @@
+[
+  { "region": "North America", "country": "USA", "vaccine_brand": "Pfizer", "year": 2021, "market_size": 15.2, "price": 19.5, "doses_sold": 300000000, "growth_rate": 0.05 },
+  { "region": "North America", "country": "USA", "vaccine_brand": "Moderna", "year": 2021, "market_size": 12.1, "price": 25.0, "doses_sold": 200000000, "growth_rate": 0.08 },
+  { "region": "Europe", "country": "Germany", "vaccine_brand": "Pfizer", "year": 2021, "market_size": 8.5, "price": 18.0, "doses_sold": 150000000, "growth_rate": 0.04 },
+  { "region": "Europe", "country": "UK", "vaccine_brand": "AstraZeneca", "year": 2021, "market_size": 5.2, "price": 4.0, "doses_sold": 100000000, "growth_rate": 0.12 },
+  { "region": "Asia", "country": "India", "vaccine_brand": "AstraZeneca", "year": 2021, "market_size": 6.8, "price": 3.0, "doses_sold": 800000000, "growth_rate": 0.15 },
+  { "region": "Asia", "country": "China", "vaccine_brand": "Sinovac", "year": 2021, "market_size": 14.5, "price": 15.0, "doses_sold": 1200000000, "growth_rate": 0.10 },
+  
+  { "region": "North America", "country": "USA", "vaccine_brand": "Pfizer", "year": 2022, "market_size": 18.5, "price": 22.0, "doses_sold": 350000000, "growth_rate": 0.21 },
+  { "region": "North America", "country": "USA", "vaccine_brand": "Moderna", "year": 2022, "market_size": 14.3, "price": 27.5, "doses_sold": 250000000, "growth_rate": 0.18 },
+  { "region": "Europe", "country": "Germany", "vaccine_brand": "Pfizer", "year": 2022, "market_size": 10.2, "price": 19.5, "doses_sold": 180000000, "growth_rate": 0.20 },
+  { "region": "Europe", "country": "UK", "vaccine_brand": "AstraZeneca", "year": 2022, "market_size": 4.5, "price": 4.0, "doses_sold": 80000000, "growth_rate": -0.13 },
+  { "region": "Asia", "country": "India", "vaccine_brand": "AstraZeneca", "year": 2022, "market_size": 8.1, "price": 3.2, "doses_sold": 900000000, "growth_rate": 0.19 },
+  { "region": "Asia", "country": "China", "vaccine_brand": "Sinovac", "year": 2022, "market_size": 16.2, "price": 14.5, "doses_sold": 1300000000, "growth_rate": 0.11 },
+
+  { "region": "South America", "country": "Brazil", "vaccine_brand": "Sinovac", "year": 2021, "market_size": 4.2, "price": 10.0, "doses_sold": 150000000, "growth_rate": 0.25 },
+  { "region": "South America", "country": "Brazil", "vaccine_brand": "Pfizer", "year": 2022, "market_size": 5.8, "price": 15.0, "doses_sold": 120000000, "growth_rate": 0.38 },
+  { "region": "Africa", "country": "South Africa", "vaccine_brand": "J&J", "year": 2021, "market_size": 1.5, "price": 8.5, "doses_sold": 40000000, "growth_rate": 0.05 },
+  { "region": "Africa", "country": "South Africa", "vaccine_brand": "Pfizer", "year": 2022, "market_size": 2.2, "price": 10.0, "doses_sold": 45000000, "growth_rate": 0.46 },
+
+  { "region": "North America", "country": "USA", "vaccine_brand": "Pfizer", "year": 2023, "market_size": 10.5, "price": 110.0, "doses_sold": 50000000, "growth_rate": -0.43 },
+  { "region": "North America", "country": "USA", "vaccine_brand": "Moderna", "year": 2023, "market_size": 8.2, "price": 120.0, "doses_sold": 40000000, "growth_rate": -0.42 },
+  { "region": "Europe", "country": "Germany", "vaccine_brand": "Pfizer", "year": 2023, "market_size": 6.1, "price": 105.0, "doses_sold": 30000000, "growth_rate": -0.40 },
+  { "region": "Asia", "country": "India", "vaccine_brand": "AstraZeneca", "year": 2023, "market_size": 3.4, "price": 3.5, "doses_sold": 300000000, "growth_rate": -0.58 }
+]
