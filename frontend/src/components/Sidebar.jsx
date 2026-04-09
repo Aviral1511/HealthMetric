@@ -1,18 +1,28 @@
 import React from 'react';
 import Filters from './Filters';
 
-const Sidebar = ({ filters, setFilters, isDark, toggleTheme }) => {
+const Sidebar = ({ filters, setFilters, isDark, toggleTheme, isOpen, setIsOpen }) => {
   return (
-    <aside className="w-72 h-screen flex flex-col p-6 sticky top-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-r border-slate-200 dark:border-slate-800 transition-colors shadow-[4px_0_24px_rgba(0,0,0,0.02)] dark:shadow-[4px_0_24px_rgba(0,0,0,0.2)] z-10">
+    <aside className={`
+      fixed md:sticky top-0 left-0 h-[100dvh] w-72 flex flex-col p-6 
+      bg-white dark:bg-[#111827] border-r border-[#e2e8f0] dark:border-slate-800 
+      transition-transform duration-300 shadow-[4px_0_24px_rgba(0,0,0,0.02)] dark:shadow-[4px_0_24px_rgba(0,0,0,0.2)] z-50
+      ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
+    `}>
       <div className="flex justify-between items-center mb-10 mt-2">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-indigo-600 shadow-lg shadow-brand-500/30 flex items-center justify-center text-white font-bold text-xl">
             V
           </div>
-          <h2 className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 dark:from-white dark:to-slate-300 tracking-tight">
+          <h2 className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-500 dark:from-white dark:to-slate-300 tracking-tight">
             VaxInsight
           </h2>
         </div>
+        <button className="md:hidden p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" onClick={() => setIsOpen(false)}>
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
 
       <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
@@ -20,15 +30,27 @@ const Sidebar = ({ filters, setFilters, isDark, toggleTheme }) => {
         <Filters filters={filters} setFilters={setFilters} />
       </div>
 
-      <div className="mt-8 pt-6 border-t border-slate-200/50 dark:border-slate-800/50">
-        <button 
-          onClick={toggleTheme} 
-          className="w-full py-3 px-4 rounded-xl relative overflow-hidden group bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-semibold transition-all duration-300 hover:shadow-md flex items-center justify-center gap-3"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500" />
-          <span className="text-lg">{isDark ? '☀️' : '🌙'}</span>
-          <span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
-        </button>
+      <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+         <span className="text-sm font-semibold text-slate-600 dark:text-slate-300 flex items-center gap-2">
+           {isDark ? '🌙 Dark Mode' : '☀️ Light Mode'}
+         </span>
+         <button
+            type="button"
+            className={`${
+              isDark ? 'bg-brand-500' : 'bg-slate-300'
+            } relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900 group`}
+            role="switch"
+            aria-checked={isDark}
+            onClick={toggleTheme}
+          >
+            <span className="sr-only">Toggle dark mode</span>
+            <span
+              aria-hidden="true"
+              className={`${
+                isDark ? 'translate-x-5' : 'translate-x-0'
+              } pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out group-hover:shadow-md`}
+            />
+          </button>
       </div>
     </aside>
   );

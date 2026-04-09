@@ -137,7 +137,7 @@ const DashboardCharts = ({ data }) => {
       </div>
 
       {/* Chart 3: Pie Chart */}
-      <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800/80 transition-all hover:shadow-md group">
+      <div className="bg-white dark:bg-[#1e293b] p-6 rounded-3xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] border border-[#e2e8f0] dark:border-slate-800/80 transition-all hover:shadow-[0_8px_40px_rgba(0,0,0,0.08)] group">
         <div className="flex justify-between items-center mb-6">
           <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-amber-500 shadow-lg shadow-amber-500/50"></span> 
@@ -170,7 +170,7 @@ const DashboardCharts = ({ data }) => {
       </div>
 
       {/* Chart 4: Area Chart */}
-      <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800/80 transition-all hover:shadow-md group">
+      <div className="bg-white dark:bg-[#1e293b] p-6 rounded-3xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] border border-[#e2e8f0] dark:border-slate-800/80 transition-all hover:shadow-[0_8px_40px_rgba(0,0,0,0.08)] group">
         <div className="flex justify-between items-center mb-6">
           <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-lg shadow-rose-500/50"></span> 
@@ -198,7 +198,7 @@ const DashboardCharts = ({ data }) => {
       </div>
 
       {/* Chart 5: Scatter Plot */}
-      <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800/80 transition-all hover:shadow-md group xl:col-span-2">
+      <div className="bg-white dark:bg-[#1e293b] p-6 rounded-3xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] border border-[#e2e8f0] dark:border-slate-800/80 transition-all hover:shadow-[0_8px_40px_rgba(0,0,0,0.08)] group xl:col-span-2">
         <div className="flex justify-between items-center mb-6">
           <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-lg shadow-cyan-500/50"></span> 

@@ -11,6 +11,7 @@ const Dashboard = () => {
   const [summaryData, setSummaryData] = useState({ marketSize: 0, avgPrice: 0, cagr: 0 });
   const [isDark, setIsDark] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -51,25 +52,46 @@ const Dashboard = () => {
   const toggleTheme = () => setIsDark(!isDark);
 
   return (
-    <div className={`flex min-h-screen font-sans ${isDark ? 'dark bg-slate-950' : 'bg-slate-50/50'}`}>
-      <Sidebar filters={filters} setFilters={setFilters} isDark={isDark} toggleTheme={toggleTheme} />
+    <div className={`flex min-h-screen font-sans ${isDark ? 'dark bg-[#0f172a]' : 'bg-[#f4f7f9]'}`}>
+      {/* Mobile Header */}
+      <div className="md:hidden fixed top-0 w-full z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 p-4 flex justify-between items-center shadow-sm">
+         <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-indigo-600 flex items-center justify-center text-white font-bold text-sm">V</div>
+            <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 dark:from-white dark:to-slate-300 tracking-tight">VaxInsight</h1>
+         </div>
+         <button onClick={() => setIsSidebarOpen(true)} className="p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg text-slate-600 dark:text-slate-300 transition-colors">
+           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7"/>
+           </svg>
+         </button>
+      </div>
+
+      {/* Backdrop for Mobile */}
+      {isSidebarOpen && (
+        <div 
+          className="md:hidden fixed inset-0 z-40 bg-slate-900/40 backdrop-blur-sm transition-opacity"
+          onClick={() => setIsSidebarOpen(false)}
+        ></div>
+      )}
+
+      <Sidebar filters={filters} setFilters={setFilters} isDark={isDark} toggleTheme={toggleTheme} isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
       
-      <main className="flex-1 p-8 md:p-12 overflow-y-auto w-full relative">
-        <header className="mb-10 flex justify-between items-end">
+      <main className="flex-1 p-6 md:p-10 lg:p-12 overflow-y-auto w-full max-w-full mt-16 md:mt-0 transition-colors duration-300">
+        <header className="mb-10 flex flex-col md:flex-row md:justify-between md:items-end gap-4">
           <div>
-            <h1 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight mb-2">Market Overview</h1>
-            <p className="text-slate-500 dark:text-slate-400 text-lg">Gain insights into global vaccine distribution safely.</p>
+            <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight mb-2">Market Overview</h1>
+            <p className="text-slate-500 dark:text-slate-400 text-sm md:text-lg">Gain insights into global vaccine distribution safely.</p>
           </div>
-          <div className="hidden md:flex items-center gap-2 text-sm font-medium text-slate-500 bg-white/50 dark:bg-slate-900/50 px-4 py-2 rounded-full border border-slate-200 dark:border-slate-800 backdrop-blur-sm shadow-sm">
+          <div className="inline-flex w-max items-center gap-2 text-xs md:text-sm font-medium text-slate-500 bg-white dark:bg-slate-800 px-4 py-2 rounded-full border border-slate-200 dark:border-slate-700 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             Live Data Mode API
           </div>
         </header>
 
         {isLoading ? (
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-3 mb-10 w-full">
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-3 mb-10 w-full hover:shadow-none">
             {[1,2,3].map(i => (
-              <div key={i} className="h-32 bg-slate-200/50 dark:bg-slate-800/50 rounded-2xl animate-pulse"></div>
+              <div key={i} className="h-32 bg-slate-200/50 dark:bg-slate-800/50 rounded-3xl animate-pulse"></div>
             ))}
           </div>
         ) : (
