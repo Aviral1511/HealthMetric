@@ -13,3 +13,8 @@ export const fetchSummary = async (filters) => {
   const res = await axios.get(`${API_BASE_URL}/summary?${params}`);
   return res.data;
 };
+
+export const fetchInsights = async (payload) => {
+  const res = await axios.post(`${API_BASE_URL}/insights`, payload);
+  return res.data;
+};
