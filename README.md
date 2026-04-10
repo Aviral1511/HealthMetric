@@ -4,7 +4,7 @@
   <p>An advanced full-stack analytics platform for exploring global vaccine market trends with interactive visualizations, smart filtering, and Generative AI insights.</p>
 
   <p>
-    <a href="https://health-metric-pi.vercel.app/"><b>Live Demo (Frontend)</b></a>
+    <a href="https://health-metric-beta.vercel.app/"><b>Live Demo (Frontend)</b></a>
   </p>
 </div>
 
