@@ -8,7 +8,7 @@ import {
 } from 'recharts';
 import ChartRecommendation from './ChartRecommendation';
 
-const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#06b6d4'];
+const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#06b6d4', '#db2777'];
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {

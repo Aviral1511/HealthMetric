@@ -105,8 +105,8 @@ const Dashboard = () => {
       <main className="flex-1 p-6 md:p-10 lg:p-12 overflow-y-auto w-full max-w-full mt-16 md:mt-0 transition-colors duration-300">
         <header className="mb-10 flex flex-col md:flex-row md:justify-between md:items-end gap-6">
           <div>
-            <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight mb-2">Market Overview</h1>
-            <p className="text-slate-500 dark:text-slate-400 text-sm md:text-lg">Gain insights into global vaccine distribution safely.</p>
+            <h1 className="text-3xl md:text-4xl font-black text-slate-800 dark:text-blue-600 tracking-tight mb-2">Market Overview</h1>
+            <p className="text-slate-500 dark:text-blue-400 text-sm md:text-lg">Gain insights into global vaccine distribution safely.</p>
           </div>
           <div className="flex flex-row items-center gap-3">
             <button
